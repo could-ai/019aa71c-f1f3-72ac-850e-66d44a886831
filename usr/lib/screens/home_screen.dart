@@ -175,8 +175,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(height: 16),
         _buildActionButton(
-          icon: Icons.photo_library_rounded,
-          label: "Upload from Gallery",
+          // Use different icon and label for Web to better match "File Explorer" terminology
+          icon: kIsWeb ? Icons.file_upload_rounded : Icons.photo_library_rounded,
+          label: kIsWeb ? "Select from File Explorer" : "Upload from Gallery",
           color: Colors.deepPurple.shade100,
           textColor: Colors.deepPurple.shade900,
           onPressed: () => _pickImage(ImageSource.gallery),
